@@ -13,6 +13,9 @@ body {
   margin: 0px;
 }
 
+/* --------------------------------
+   Media Queries 
+   -------------------------------- */
 /* Interpolates a property between two breaks
 
 If no breakpoint is specified, the property will be interpolated
@@ -21,14 +24,32 @@ between 375px and 1920px
 @include animate(font-size, 20px, 60px);
 @include animate(height, 200px, 1000px, xs, md2);
 */
-div {
-  display: flex;
-  flex-wrap: wrap;
+/* --------------------------------
+   Buttons
+   -------------------------------- */
+.button {
+  font-weight: 800;
+  display: inline-block;
+  padding: 17px 50px;
+  background-color: #622b85;
+  transition: background-color 350ms ease;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: button-MODE--font-size 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
 }
-
-h1 {
-  color: red;
-  padding-left: 20px;
-  margin-right: 20px;
-  background-color: lightgrey;
+@keyframes button-MODE--font-size {
+  0%, 19.53125% {
+    font-size: 14px;
+  }
+  100%, 100% {
+    font-size: 60px;
+  }
+}
+.button:hover {
+  background-color: #d888cb;
 }
