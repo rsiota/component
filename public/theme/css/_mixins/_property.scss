@@ -1,0 +1,194 @@
+/* Interpolates a property between two breaks
+
+If no breakpoint is specified, the property will be interpolated
+between 375px and 1920px
+
+@include animate(font-size, 20px, 60px);
+@include animate(height, 200px, 1000px, xs, md2);
+*/
+
+@use "sass:list";
+@use "sass:string";
+@use "sass:map";
+@use "sass:math";
+
+$listAnimations: ();
+$breakpointMin: 375;
+$breakpointMax: 1920;
+$breaks: (
+    no: 0,
+    xs: 576,
+    sm: 768,
+    md: 992,
+    md2: 1042,
+    lg: 1200,
+    lg2: 1390,
+    xl: 1500,
+    wumbo: 1920,
+);
+
+// Media query
+@mixin mq-min-max($breakpoint1, $breakpoint2) {
+    
+    // If the breakpoint exists in the map.
+    @if map-has-key($breaks, $breakpoint1) and map-has-key($breaks, $breakpoint2) {
+    
+        // Get the breakpoint value.
+        $breakpoint-value1: map-get($breaks, $breakpoint1);
+        $breakpoint-value2: map-get($breaks, $breakpoint2);
+
+        // Write the media query.
+        @media only screen and (min-width: ($breakpoint-value1) + 'px') and (max-width: ($breakpoint-value2 - 1) + 'px') {
+            @content;
+        }
+
+        // If the breakpoint doesn't exist in the map.
+    } @else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+
+// Find Selector From Animation
+@function findSelector($animation) {
+        $classIndex: string.index($animation, "--");
+        $class: string.slice($animation, 1, $classIndex - 6);
+        @return $class;
+}
+
+// String / Replace 
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// Concatenates Animations
+@mixin mergeAnimations($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+
+        $keyframes: nth($animate, $i);
+        $animation: $keyframes 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
+        $animations: #{$animations + $animation};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+
+    animation: $animations;
+}
+
+// Checks if current animation selector 
+// is different from stored animation selector 
+@function checkotherSelector($currentSelector) {
+    
+    @if length($listAnimations) != 0 {
+        
+        $anotherSelector: false;
+        
+        @each $animation in $listAnimations {
+        
+            $selector: findSelector($animation);
+
+            @if ($selector != $currentSelector) {
+                $anotherSelector: true;
+                
+            }
+        }
+        @return $anotherSelector;
+    }
+    @return false;
+}
+
+// Animate Property Between Two Media Queries 
+@mixin animate($property, $mobile, $desktop, $mqBottom: "", $mqTop: "") {
+    
+    $selector: str-replace(#{&}, '.', '');
+    $mqTopPrefix: 'DE';
+    $mqBottomPrefix: 'MO';
+    
+    @if ($mqTop != "") {
+        $mqTopPrefix: to-upper-case(string.slice($mqTop, 1, 2));  
+    }
+    
+    @if ($mqBottom != "") {
+        $mqBottomPrefix: to-upper-case(string.slice($mqBottom, 1, 2));  
+    }
+
+    $keyframe: str-replace($selector, ' ', '_') + '-' + 
+        $mqBottomPrefix + $mqTopPrefix + 
+        '--' + $property;
+    
+    $currentSelector: str-replace($selector, ' ', '_');
+
+    $breakpointBottom: $breakpointMin;
+    $breakpointTop: $breakpointMax;
+
+    @if ($mqBottom != "") {
+        $breakpointBottom: map-get($breaks, $mqBottom);
+    } 
+
+    @if ($mqTop != "") {
+        $breakpointTop: map-get($breaks, $mqTop);
+    } 
+
+    $start: math.div(100, calc($breakpointMax / $breakpointBottom));
+    $end: math.div(100, calc($breakpointMax / $breakpointTop));
+    
+    
+    $breakpoint-value1: map-get($breaks, $mqBottom);
+    $breakpoint-value2: map-get($breaks, $mqTop);
+
+    $otherSelector: checkotherSelector($currentSelector);
+    
+    @if $otherSelector == true {
+        $listAnimations: () !global;
+    }
+
+    @if  ($mqTop == "" and $mqBottom == "") {
+        @keyframes #{$keyframe} {
+    
+            0%,
+            #{$start}% {
+                #{$property}: $mobile;
+            }
+            
+            #{$end}%,
+            100% {
+                #{$property}: $desktop;
+            }
+        }
+
+        $listAnimations: list.append($listAnimations, $keyframe) !global;
+        @include mergeAnimations($listAnimations...);
+
+    } @else {
+        @media only screen and (min-width: ($breakpoint-value1) + 'px') and (max-width: ($breakpoint-value2 - 1) + 'px') {
+            
+            @keyframes #{$keyframe} {
+        
+                0%,
+                #{$start}% {
+                    #{$property}: $mobile;
+                }
+                
+                #{$end}%,
+                100% {
+                    #{$property}: $desktop;
+                }
+            }
+
+            $listAnimations: list.append($listAnimations, $keyframe) !global;
+            @include mergeAnimations($listAnimations...);
+        }
+    }
+}

@@ -1,0 +1,34 @@
+/* -------------------------------
+   Base
+   ------------------------------- */
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+/* Interpolates a property between two breaks
+
+If no breakpoint is specified, the property will be interpolated
+between 375px and 1920px
+
+@include animate(font-size, 20px, 60px);
+@include animate(height, 200px, 1000px, xs, md2);
+*/
+div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  color: red;
+  padding-left: 20px;
+  margin-right: 20px;
+  background-color: lightgrey;
+}
