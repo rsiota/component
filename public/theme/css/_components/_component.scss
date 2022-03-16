@@ -2,7 +2,16 @@
    Buttons
    -------------------------------- */
 
+.container {
+	padding-top: 20vh;
+	height: 400vh;	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .button {
+	max-width: 300px;
     font-weight: 800;
     display: inline-block;
     padding: 17px 50px;
@@ -15,10 +24,24 @@
     border: none;
     text-transform: uppercase;
     cursor: pointer;
+    margin-bottom: 130vh;
 
     @include animate(font-size, 14px, 60px);
 
     &:hover {
     	background-color: #d888cb;
     }
+}
+.box {
+	height: 200px; 
+	width: 200px;
+	background-color: pink;
+	@include scroll(background-color, green, pink);
+	@include scroll(transform, rotateZ(0deg), rotateZ(15deg));
+}
+.second-box {
+	height: 100px; 
+	width: 100px;
+	background-color: pink;
+	@include scroll(background-color, yellow, red);
 }

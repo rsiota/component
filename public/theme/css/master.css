@@ -24,10 +24,27 @@ between 375px and 1920px
 @include animate(font-size, 20px, 60px);
 @include animate(height, 200px, 1000px, xs, md2);
 */
+/* Interpolates a property between two viewport percentages 
+
+If no percentages are specified, the property will be interpolated
+between 0% and 100%
+
+@include scroll(font-size, 20px, 60px);
+@include scroll(height, 200px, 1000px, 30, 50);
+*/
 /* --------------------------------
    Buttons
    -------------------------------- */
+.container {
+  padding-top: 20vh;
+  height: 400vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .button {
+  max-width: 300px;
   font-weight: 800;
   display: inline-block;
   padding: 17px 50px;
@@ -40,7 +57,8 @@ between 375px and 1920px
   border: none;
   text-transform: uppercase;
   cursor: pointer;
-  animation: button-MODE--font-size 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
+  margin-bottom: 130vh;
+  animation: button-MODE--font-size 1s linear 1 calc(-1s * var(--scroll-button) / 100) both paused;
 }
 @keyframes button-MODE--font-size {
   0%, 19.53125% {
@@ -52,4 +70,43 @@ between 375px and 1920px
 }
 .button:hover {
   background-color: #d888cb;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background-color: pink;
+  animation: box-0100--background-color 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused;
+  animation: box-0100--background-color 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused, box-0100--transform 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused;
+}
+@keyframes box-0100--background-color {
+  0%, 0% {
+    background-color: green;
+  }
+  100%, 100% {
+    background-color: pink;
+  }
+}
+@keyframes box-0100--transform {
+  0%, 0% {
+    transform: rotateZ(0deg);
+  }
+  100%, 100% {
+    transform: rotateZ(15deg);
+  }
+}
+
+.second-box {
+  height: 100px;
+  width: 100px;
+  background-color: pink;
+  animation: second-box-0100--background-color 1s linear 1 calc(-1s * var(--scroll-second-box) / 100) both paused;
+}
+@keyframes second-box-0100--background-color {
+  0%, 0% {
+    background-color: yellow;
+  }
+  100%, 100% {
+    background-color: red;
+  }
 }

@@ -1,0 +1,121 @@
+/* Interpolates a property between two viewport percentages 
+
+If no percentages are specified, the property will be interpolated
+between 0% and 100%
+
+@include scroll(font-size, 20px, 60px);
+@include scroll(height, 200px, 1000px, 30, 50);
+*/
+
+@use "sass:list";
+@use "sass:string";
+@use "sass:map";
+@use "sass:math";
+
+$listAnimations: ();
+
+// Find Selector From Animation
+@function findSelector($animation) {
+        $classIndex: string.index($animation, "--");
+        $class: string.slice($animation, 1, $classIndex - 6);
+        @return $class;
+}
+
+// String / Replace 
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// Concatenates Animations
+@mixin mergeAnimations($animate...) {
+    $max: length($animate);
+    $animations: '';
+    $selector: str-replace(#{&}, '.', '');
+
+    @for $i from 1 through $max {
+
+        $keyframes: nth($animate, $i);
+        $animation: $keyframes 1s linear 1 calc(-1s * var(--scroll-#{$selector}) / 100) both paused;
+        $animations: #{$animations + $animation};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+
+    animation: $animations;
+}
+
+// Checks if current animation selector 
+// is different from stored animation selector 
+@function checkotherSelector($currentSelector) {
+    
+    @if length($listAnimations) != 0 {
+        
+        $anotherSelector: false;
+        
+        @each $animation in $listAnimations {
+        
+            $selector: findSelector($animation);
+
+            @if ($selector != $currentSelector) {
+                $anotherSelector: true;
+                
+            }
+        }
+        @return $anotherSelector;
+    }
+    @return false;
+}
+
+// Scroll bound animation based on viewport percentage of selector 
+@mixin scroll($property, $top, $bottom, $topPercentage: "", $bottomPercentage: "") {
+    
+    $selector: str-replace(#{&}, '.', '');
+    $bottomPercentagePrefix: 100;
+    $topPercentagePrefix: 0;
+    
+    @if ($bottomPercentage != "") {
+        $bottomPercentagePrefix: $bottomPercentage; 
+    }
+    
+    @if ($topPercentage != "") {
+        $topPercentagePrefix: $topPercentage; 
+    }
+
+    $keyframe: str-replace($selector, ' ', '_') + '-' + 
+        $topPercentagePrefix + $bottomPercentagePrefix + 
+        '--' + $property;
+    
+    $currentSelector: str-replace($selector, ' ', '_');
+    
+    $otherSelector: checkotherSelector($currentSelector);
+    
+    @if $otherSelector == true {
+        $listAnimations: () !global;
+    }
+    $start: $topPercentagePrefix;
+    $end: $bottomPercentagePrefix;
+
+    @keyframes #{$keyframe} {
+
+        0%,
+        #{$start}% {
+            #{$property}: $top;
+        }
+        
+        #{$end}%,
+        100% {
+            #{$property}: $bottom;
+        }
+    }
+
+    $listAnimations: list.append($listAnimations, $keyframe) !global;
+    @include mergeAnimations($listAnimations...);
+}
