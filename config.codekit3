@@ -79,6 +79,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/public\/theme\/css\/_mixins\/_animate.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/theme\/css\/_mixins\/_animate.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/public\/theme\/css\/_mixins\/_media-queries.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -212,7 +227,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "brackets_brown",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 669232258.41289604
+    "lastBuiltDate" : 669234917.55498099
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
