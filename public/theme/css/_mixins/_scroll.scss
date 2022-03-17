@@ -107,12 +107,12 @@ $listAnimations: ();
 
         0%,
         #{$start}% {
-            #{$property}: $top;
+            #{$property}: $bottom;
         }
         
         #{$end}%,
         100% {
-            #{$property}: $bottom;
+            #{$property}: $top;
         }
     }
 

@@ -25,7 +25,6 @@ defined('BASE_FPATH') || define('BASE_FPATH', ESKIMO_BASE_PATH);
 	<body>
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/component.inc.php" ); ?>
 	    <script src="/theme/js/app.js"></script>
-	    <script src="/theme/js/src/Scroll.js"></script>
 	</body>
 
 </html>

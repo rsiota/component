@@ -17,6 +17,14 @@
       "oAP" : "\/app\/templates\/components\/core\/html\/component.inc.php",
       "oF" : 0
     },
+    "\/build\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/.gitignore",
+      "oF" : 0
+    },
     "\/component.sublime-project" : {
       "cB" : 0,
       "ft" : 8192,
@@ -86,7 +94,7 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/public\/theme\/css\/_mixins\/_property.scss" : {
+    "\/public\/theme\/css\/_mixins\/_responsive.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
@@ -95,7 +103,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/public\/theme\/css\/_mixins\/_property.css",
+      "oAP" : "\/public\/theme\/css\/_mixins\/_responsive.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -155,18 +163,18 @@
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
-      "mi" : 1,
+      "mi" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/theme\/js\/app-min.js",
+      "oAP" : "\/public\/theme\/app.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
     },
-    "\/public\/theme\/js\/src\/Property.js" : {
+    "\/public\/theme\/js\/src\/Responsive.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
-      "mi" : 1,
+      "mi" : 0,
       "oA" : 0,
       "oAP" : "\/public\/theme\/js\/app.js",
       "oF" : 2,
@@ -177,10 +185,10 @@
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/public\/theme\/js\/src\/Scroll-min.js",
-      "oF" : 0,
+      "mi" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/theme\/js\/app.js",
+      "oF" : 2,
       "sC" : 3,
       "tS" : 0
     }
@@ -189,14 +197,22 @@
 
   ],
   "manualImportLinks" : {
-
+    "\/public\/theme\/js\/src\/Responsive.js" : [
+      {
+        "followForSyntaxChecking" : 1,
+        "linkedFileAbbreviatedPath" : "\/public\/theme\/js\/src\/Scroll.js",
+        "position" : 0,
+        "type" : 1
+      }
+    ]
   },
   "projectAttributes" : {
     "creationDate" : 669067449.81032598,
     "displayValue" : "component.test",
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "brackets_brown",
-    "iconImageWasSetByUser" : 0
+    "iconImageWasSetByUser" : 0,
+    "lastBuiltDate" : 669232258.41289604
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -1555,13 +1571,13 @@
     },
     "languageDefaultsJS" : {
       "autoOutputAction" : 0,
-      "autoOutputPathFilenamePattern" : "*-min.js",
-      "autoOutputPathRelativePath" : "\/min",
+      "autoOutputPathFilenamePattern" : "app.js",
+      "autoOutputPathRelativePath" : "..\/",
       "autoOutputPathReplace1" : "",
       "autoOutputPathReplace2" : "",
-      "autoOutputPathStyle" : 0,
+      "autoOutputPathStyle" : 2,
       "bundleFormat" : 0,
-      "minifierStyle" : 1,
+      "minifierStyle" : 0,
       "sourceMapStyle" : 0,
       "syntaxCheckerStyle" : 3,
       "transpilerStyle" : 0

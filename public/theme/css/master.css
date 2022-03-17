@@ -21,8 +21,8 @@ body {
 If no breakpoint is specified, the property will be interpolated
 between 375px and 1920px
 
-@include animate(font-size, 20px, 60px);
-@include animate(height, 200px, 1000px, xs, md2);
+@include responsive(font-size, 20px, 60px);
+@include responsive(height, 200px, 1000px, xs, md2);
 */
 /* Interpolates a property between two viewport percentages 
 
@@ -81,18 +81,18 @@ between 0% and 100%
 }
 @keyframes box-0100--background-color {
   0%, 0% {
-    background-color: green;
+    background-color: pink;
   }
   100%, 100% {
-    background-color: pink;
+    background-color: green;
   }
 }
 @keyframes box-0100--transform {
   0%, 0% {
-    transform: rotateZ(0deg);
+    transform: rotateZ(15deg);
   }
   100%, 100% {
-    transform: rotateZ(15deg);
+    transform: rotateZ(0deg);
   }
 }
 
@@ -104,9 +104,9 @@ between 0% and 100%
 }
 @keyframes second-box-0100--background-color {
   0%, 0% {
-    background-color: yellow;
+    background-color: red;
   }
   100%, 100% {
-    background-color: red;
+    background-color: yellow;
   }
 }

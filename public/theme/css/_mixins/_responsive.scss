@@ -3,8 +3,8 @@
 If no breakpoint is specified, the property will be interpolated
 between 375px and 1920px
 
-@include animate(font-size, 20px, 60px);
-@include animate(height, 200px, 1000px, xs, md2);
+@include responsive(font-size, 20px, 60px);
+@include responsive(height, 200px, 1000px, xs, md2);
 */
 
 @use "sass:list";
@@ -110,7 +110,7 @@ $breaks: (
 }
 
 // Animate Property Between Two Media Queries 
-@mixin animate($property, $mobile, $desktop, $mqBottom: "", $mqTop: "") {
+@mixin responsive($property, $mobile, $desktop, $mqBottom: "", $mqTop: "") {
     
     $selector: str-replace(#{&}, '.', '');
     $mqTopPrefix: 'DE';

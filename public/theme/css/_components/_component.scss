@@ -26,7 +26,7 @@
     cursor: pointer;
     margin-bottom: 130vh;
 
-    @include animate(font-size, 14px, 60px);
+    @include responsive(font-size, 14px, 60px);
 
     &:hover {
     	background-color: #d888cb;

@@ -1,3 +1,4 @@
+
 // Update css variable with with viewport width
 let root = document.documentElement;
 root.style.setProperty('--width', window.innerWidth);
