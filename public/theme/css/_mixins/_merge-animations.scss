@@ -1,0 +1,21 @@
+// $animation: $keyframes 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
+// $animation: $keyframes 1s linear 1 calc(-1s * var(--scroll-#{$selector}) / 100) both paused;
+// $animation: $keyframes;
+
+// Concatenates Animations
+@mixin mergeAnimations($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+
+        $animation: nth($animate, $i);
+        $animations: #{$animations + $animation};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+
+    animation: $animations;
+}
