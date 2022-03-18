@@ -1,7 +1,3 @@
-// $animation: $keyframes 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
-// $animation: $keyframes 1s linear 1 calc(-1s * var(--scroll-#{$selector}) / 100) both paused;
-// $animation: $keyframes;
-
 // Concatenates Animations
 @mixin mergeAnimations($animate...) {
     $max: length($animate);

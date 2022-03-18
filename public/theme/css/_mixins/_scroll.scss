@@ -10,8 +10,7 @@ between 0% and 100%
 @use "sass:list";
 @use "sass:map";
 @use "sass:math";
-
-$listAnimations: ();
+@use "sass:string";
 
 // Scroll bound animation based on viewport percentage of selector 
 @mixin scroll($property, $top, $bottom, $topPercentage: "", $bottomPercentage: "") {
@@ -28,9 +27,11 @@ $listAnimations: ();
         $topPercentagePrefix: $topPercentage; 
     }
 
-    $keyframe: str-replace($selector, ' ', '_') + '-' + 
-        $topPercentagePrefix + $bottomPercentagePrefix + 
-        '--' + $property;
+    $keyframe: str-replace($selector, ' ', '_') + '--' + 
+        $property + '-' +
+        $topPercentagePrefix + $bottomPercentagePrefix;
+
+    $animation: string.quote("#{$keyframe} 1s linear 1 calc(-1s * var(--scroll-#{$selector}) / 100) both paused");
     
     $currentSelector: str-replace($selector, ' ', '_');
     
@@ -55,6 +56,6 @@ $listAnimations: ();
         }
     }
 
-    $listAnimations: list.append($listAnimations, $keyframe) !global;
+    $listAnimations: list.append($listAnimations, $animation) !global;
     @include mergeAnimations($listAnimations...);
 }

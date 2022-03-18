@@ -1,5 +1,7 @@
 // Checks if current animation selector 
 // is different from stored animation selector 
+@use "sass:string";
+
 @function checkotherSelector($currentSelector) {
     
     @if length($listAnimations) != 0 {
@@ -7,7 +9,7 @@
         $anotherSelector: false;
         
         @each $animation in $listAnimations {
-        
+
             $selector: findSelector($animation);
 
             @if ($selector != $currentSelector) {

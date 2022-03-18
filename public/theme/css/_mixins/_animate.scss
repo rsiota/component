@@ -10,14 +10,12 @@ Animates the height property with a start time of 0s and a duration o 1s
 @use "sass:map";
 @use "sass:math";
 
-$listAnimations: ();
-
 // Animate Property Between Two Media Queries 
 @mixin animate($property, $start, $end, $delay: "", $time: "") {
 
     $selector: str-replace(#{&}, '.', '');
-    $keyframe: str-replace($selector, ' ', '_')+'-'+$delay+$time+'--'+$property;
-    $animation: $keyframe + ' ' + $time + ' ease '  + $delay + ' forwards'; 
+    $keyframe: str-replace($selector, ' ', '_')+'--'+ $property + '-' + $delay + $time;
+    $animation: $keyframe + ' '+ $time + ' ease '+ $delay + ' forwards';
 
     $currentSelector: str-replace($selector, ' ', '_');
     $otherSelector: checkotherSelector($currentSelector);
@@ -27,10 +25,10 @@ $listAnimations: ();
     }
 
     @keyframes #{$keyframe} {
-        0%
-        {
+        0% {
             #{$property}: $start;
         }
+
         100% {
             #{$property}: $end;
         }

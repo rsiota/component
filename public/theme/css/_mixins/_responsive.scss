@@ -10,6 +10,7 @@ between 375px and 1920px
 @use "sass:list";
 @use "sass:map";
 @use "sass:math";
+@use "sass:string";
 
 $listAnimations: ();
 $breakpointMin: 375;
@@ -63,10 +64,11 @@ $breaks: (
         $mqBottomPrefix: to-upper-case(string.slice($mqBottom, 1, 2));  
     }
 
-    $keyframe: str-replace($selector, ' ', '_') + '-' + 
-        $mqBottomPrefix + $mqTopPrefix + 
-        '--' + $property;
-    
+    $keyframe: str-replace($selector, ' ', '_') + '--' + 
+         $property + '-' + $mqBottomPrefix + $mqTopPrefix;
+
+    $animation: string.quote("#{$keyframe} 1s linear 1 calc(-1s * var(--width) / 1920) both paused");
+
     $currentSelector: str-replace($selector, ' ', '_');
 
     $breakpointBottom: $breakpointMin;
@@ -107,7 +109,7 @@ $breaks: (
             }
         }
 
-        $listAnimations: list.append($listAnimations, $keyframe) !global;
+        $listAnimations: list.append($listAnimations, $animation) !global;
         @include mergeAnimations($listAnimations...);
 
     } @else {
@@ -126,7 +128,7 @@ $breaks: (
                 }
             }
 
-            $listAnimations: list.append($listAnimations, $keyframe) !global;
+            $listAnimations: list.append($listAnimations, $animation) !global;
             @include mergeAnimations($listAnimations...);
         }
     }

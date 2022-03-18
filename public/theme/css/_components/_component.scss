@@ -27,7 +27,9 @@
     margin-bottom: 130vh;
 
     @include responsive(font-size, 14px, 60px);
-   // @include scroll(transform, rotateZ(0deg), rotateZ(15deg));
+    @include responsive(font-size, 100px, 200px, sm, md);
+    @include responsive(background-color, yellow, gray);
+    @include scroll(color, yellow, red);
 
     &:hover {
     	background-color: #d888cb;
@@ -44,6 +46,7 @@
 	width: 200px;
 	background-color: pink;
 	@include scroll(background-color, green, pink);
+  @include scroll(transform, rotateZ(0deg), rotateZ(-90deg));
 }
 .second-box {
 	height: 100px; 
