@@ -1,10 +1,8 @@
-<div class="container" x-data="{ clicked: true}">
-	<button class="button"
-		@click="clicked = !clicked"
-		:class="clicked && 'animation'"
-		scroll>
-		more info
-	</button>
-	<div class="box" scroll></div>
-	<div class="second-box" scroll></div>
+<div class="section" scroll>
+	<div class="container">
+		<div class="box"></div>
+		<div class="box-2"></div>
+		<div class="box-3"></div>
+		<div class="box-4"></div>
+	</div>
 </div>

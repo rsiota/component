@@ -23,12 +23,17 @@ if (elements.length > 0) {
 // variable with viewport percentage position of elements
 // with attribute 'scroll'
 function updateScrollCssVariable(element) {
+    let elementClass = element.getAttribute('class');
+
     window.addEventListener('scroll', function() {
-        let elementClass = element.getAttribute('class');
         let elementTop = 0 + element.getBoundingClientRect().top;
-        if (elementTop > 0 && elementTop < windowHeight) {
-            let percentage = 100 * (elementTop / windowHeight);
-            percentage = round(percentage, 0);
+        let elementBottom = 0 + element.getBoundingClientRect().bottom; 
+        let elementHeight = elementBottom - elementTop;
+        let percentageHeight = elementHeight + windowHeight;  
+        let percentage = 100 - (elementBottom / percentageHeight) * 100;
+        percentage = round(percentage, 1);
+
+        if (percentage >= 0 && percentage <= 100 ) {
             let rootEl = document.documentElement;
             let scrollCssVar = '--scroll-' + elementClass;
             rootEl.style.setProperty(scrollCssVar, percentage);

@@ -1,56 +1,45 @@
 /* --------------------------------
-   Buttons
+  Component 
    -------------------------------- */
 
-.container {
-	padding-top: 20vh;
-	height: 400vh;	
-	display: flex;
+.section {
+  margin-top: 100vh;
+  margin-bottom: 100vh;
+	height: 100vh;	
 	flex-direction: column;
 	align-items: center;
+  background-color: white;
+  overflow: hidden;
 }
 
-.button {
-	max-width: 300px;
-    font-weight: 800;
-    display: inline-block;
-    padding: 17px 50px;
-    background-color: #622b85;
-    transition: background-color 350ms ease;
-    color: white;
-    font-size: 16px;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-bottom: 130vh;
-
-    @include responsive(font-size, 14px, 60px);
-    @include responsive(font-size, 100px, 200px, sm, md);
-    @include responsive(background-color, yellow, gray);
-    @include scroll(color, yellow, red);
-
-    &:hover {
-    	background-color: #d888cb;
-    }
-
-    &.animation {
-    	@include animate(background-color, #622b85, green, 0s, 1s);
-      @include animate(padding, 17px 50px, 50px 50px, 3s, 1s);
-      @include animate(background-color, green, red, 1s, 2s);
-    }
+.container {
+  position: relative;
 }
+
 .box {
+  position: absolute;
 	height: 200px; 
 	width: 200px;
+  left: 20vw;
+  top: 20vh;
 	background-color: pink;
 	@include scroll(background-color, green, pink);
-  @include scroll(transform, rotateZ(0deg), rotateZ(-90deg));
 }
-.second-box {
-	height: 100px; 
-	width: 100px;
-	background-color: pink;
-	@include scroll(background-color, yellow, red);
+
+.box-2 {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: 40vw;
+  top: 40vh;
+  background-color: limegreen;
+}
+
+.box-3 {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  left: 60vw;
+  top: 50vh;
+  background-color: grey;
 }

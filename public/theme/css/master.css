@@ -27,124 +27,40 @@ between 0% and 100%
 /* -------------------------------
    Base
    ------------------------------- */
-* {
-  outline: 1px solid rgba(255, 0, 0, 0.2);
-}
-
 html {
   box-sizing: border-box;
 }
 
 body {
+  background-color: lightgrey;
   margin: 0px;
 }
 
 /* --------------------------------
-   Buttons
+  Component 
    -------------------------------- */
-.container {
-  padding-top: 20vh;
-  height: 400vh;
-  display: flex;
+.section {
+  margin-top: 100vh;
+  margin-bottom: 100vh;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
+  background-color: white;
+  overflow: hidden;
 }
 
-.button {
-  max-width: 300px;
-  font-weight: 800;
-  display: inline-block;
-  padding: 17px 50px;
-  background-color: #622b85;
-  transition: background-color 350ms ease;
-  color: white;
-  font-size: 16px;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  border: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-bottom: 130vh;
-  animation: button--font-size-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
-  animation: button--font-size-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused, button--font-size-SMMD 1s linear 1 calc(-1s * var(--width) / 1920) both paused, button--background-color-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
-  animation: button--font-size-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused, button--font-size-SMMD 1s linear 1 calc(-1s * var(--width) / 1920) both paused, button--background-color-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused, button--color-0100 1s linear 1 calc(-1s * var(--scroll-button) / 100) both paused;
-}
-@keyframes button--font-size-MODE {
-  0%, 19.53125% {
-    font-size: 14px;
-  }
-  100%, 100% {
-    font-size: 60px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .button {
-    animation: button--font-size-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused, button--font-size-SMMD 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
-  }
-  @keyframes button--font-size-SMMD {
-    0%, 40% {
-      font-size: 100px;
-    }
-    51.6666666667%, 100% {
-      font-size: 200px;
-    }
-  }
-}
-@keyframes button--background-color-MODE {
-  0%, 19.53125% {
-    background-color: yellow;
-  }
-  100%, 100% {
-    background-color: gray;
-  }
-}
-@keyframes button--color-0100 {
-  0%, 0% {
-    color: red;
-  }
-  100%, 100% {
-    color: yellow;
-  }
-}
-.button:hover {
-  background-color: #d888cb;
-}
-.button.animation {
-  animation: buttonanimation--background-color-0s1s 1s ease 0s forwards;
-  animation: buttonanimation--background-color-0s1s 1s ease 0s forwards, buttonanimation--padding-3s1s 1s ease 3s forwards;
-  animation: buttonanimation--background-color-0s1s 1s ease 0s forwards, buttonanimation--padding-3s1s 1s ease 3s forwards, buttonanimation--background-color-1s2s 2s ease 1s forwards;
-}
-@keyframes buttonanimation--background-color-0s1s {
-  0% {
-    background-color: #622b85;
-  }
-  100% {
-    background-color: green;
-  }
-}
-@keyframes buttonanimation--padding-3s1s {
-  0% {
-    padding: 17px 50px;
-  }
-  100% {
-    padding: 50px 50px;
-  }
-}
-@keyframes buttonanimation--background-color-1s2s {
-  0% {
-    background-color: green;
-  }
-  100% {
-    background-color: red;
-  }
+.container {
+  position: relative;
 }
 
 .box {
+  position: absolute;
   height: 200px;
   width: 200px;
+  left: 20vw;
+  top: 20vh;
   background-color: pink;
   animation: box--background-color-0100 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused;
-  animation: box--background-color-0100 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused, box--transform-0100 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused;
 }
 @keyframes box--background-color-0100 {
   0%, 0% {
@@ -154,26 +70,21 @@ body {
     background-color: green;
   }
 }
-@keyframes box--transform-0100 {
-  0%, 0% {
-    transform: rotateZ(-90deg);
-  }
-  100%, 100% {
-    transform: rotateZ(0deg);
-  }
-}
 
-.second-box {
+.box-2 {
+  position: absolute;
   height: 100px;
   width: 100px;
-  background-color: pink;
-  animation: second-box--background-color-0100 1s linear 1 calc(-1s * var(--scroll-second-box) / 100) both paused;
+  left: 40vw;
+  top: 40vh;
+  background-color: limegreen;
 }
-@keyframes second-box--background-color-0100 {
-  0%, 0% {
-    background-color: red;
-  }
-  100%, 100% {
-    background-color: yellow;
-  }
+
+.box-3 {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  left: 60vw;
+  top: 50vh;
+  background-color: grey;
 }
