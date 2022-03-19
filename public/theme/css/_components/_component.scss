@@ -3,44 +3,10 @@
    -------------------------------- */
 
 .section {
-  margin-top: 100vh;
-  margin-bottom: 100vh;
-	flex-direction: column;
-  background-color: white;
-  overflow: hidden;
-}
-
-.container {
-  position: relative;
-  height: 100vh;
-}
-
-.box {
-  position: absolute;
-	height: 200px; 
-	width: 200px;
-  left: 20vw;
-  top: 20vh;
-	background-color: pink;
-  z-index: 3;
-	@include scroll(transform, translateY(1000px), translateY(-1000px), 0, 100, '.section');
-}
-
-.box-2 {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  left: 40vw;
-  top: 40vh;
-  background-color: limegreen;
-  @include scroll(transform, translateY(-352px), translateY(352px), 0, 100, '.section');
-}
-
-.box-3 {
-  position: absolute;
-  height: 250px;
-  width: 250px;
-  left: 60vw;
-  top: 50vh;
-  background-color: grey;
+  height: 10px;
+  width: 100%;
+  background-color: blue;
+  position: fixed;
+  top: 0px;
+  @include scroll(width, 0%, 100%, 0, 100, '.page');
 }

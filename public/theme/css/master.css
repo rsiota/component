@@ -40,66 +40,25 @@ html {
 body {
   background-color: lightgrey;
   margin: 0px;
+  height: 400vh;
 }
 
 /* --------------------------------
   Component 
    -------------------------------- */
 .section {
-  margin-top: 100vh;
-  margin-bottom: 100vh;
-  flex-direction: column;
-  background-color: white;
-  overflow: hidden;
+  height: 10px;
+  width: 100%;
+  background-color: blue;
+  position: fixed;
+  top: 0px;
+  animation: section--width-0100 1s linear 1 calc(-1s * var(--scroll-page) / 100) both paused;
 }
-
-.container {
-  position: relative;
-  height: 100vh;
-}
-
-.box {
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  left: 20vw;
-  top: 20vh;
-  background-color: pink;
-  z-index: 3;
-  animation: box--transform-0100 1s linear 1 calc(-1s * var(--scroll-section) / 100) both paused;
-}
-@keyframes box--transform-0100 {
+@keyframes section--width-0100 {
   0%, 0% {
-    transform: translateY(1000px);
+    width: 0%;
   }
   100%, 100% {
-    transform: translateY(-1000px);
+    width: 100%;
   }
-}
-
-.box-2 {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  left: 40vw;
-  top: 40vh;
-  background-color: limegreen;
-  animation: box-2--transform-0100 1s linear 1 calc(-1s * var(--scroll-section) / 100) both paused;
-}
-@keyframes box-2--transform-0100 {
-  0%, 0% {
-    transform: translateY(-352px);
-  }
-  100%, 100% {
-    transform: translateY(352px);
-  }
-}
-
-.box-3 {
-  position: absolute;
-  height: 250px;
-  width: 250px;
-  left: 60vw;
-  top: 50vh;
-  background-color: grey;
 }

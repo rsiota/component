@@ -16,7 +16,7 @@ let elements = document.querySelectorAll('[scroll]');
 if (elements.length > 0) {
 	elements.forEach((element) => {
 		updateScrollCssVariable(element);
-	});
+	})
 }
 
 // Listen for window scroll and update '--scroll-classname'
@@ -31,6 +31,13 @@ function updateScrollCssVariable(element) {
         let elementHeight = elementBottom - elementTop;
         let percentageHeight = elementHeight + windowHeight;  
         let percentage = 100 - (elementBottom / percentageHeight) * 100;
+
+        if (elementClass == 'page') {
+            elementTop = document.documentElement.scrollTop;
+            percentageHeight = elementHeight - windowHeight;
+            percentage = (elementTop / percentageHeight) * 100;
+        } 
+
         percentage = round(percentage, 1);
 
         if (percentage >= 0 && percentage <= 100 ) {

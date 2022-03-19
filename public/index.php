@@ -22,7 +22,7 @@ defined('BASE_FPATH') || define('BASE_FPATH', ESKIMO_BASE_PATH);
 		<script defer src="https://unpkg.com/alpinejs@3.9.1/dist/cdn.min.js"></script>
 	</head>
 
-	<body>
+	<body class="page" scroll>
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/component.inc.php" ); ?>
 	    <script src="/theme/js/app.js"></script>
 	</body>
