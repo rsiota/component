@@ -1,10 +1,16 @@
-/* Interpolates a property between two viewport percentages 
+/* While scrolling in view play scroll animation 
 
-If no percentages are specified, the property will be interpolated
-between 0% and 100%
+If no percentages are specified, the animation boundaries are
+0% (when element starts entering into view) 
+100% (when element is fully invisible)
+
+If no class/selector is specified the trigger of the animation
+is the selector where the mixin is defined
 
 @include scroll(font-size, 20px, 60px);
 @include scroll(height, 200px, 1000px, 30, 50);
+@include scroll(height, 200px, 1000px, 30, 50, '.section');
+
 */
 
 @use "sass:list";
@@ -12,10 +18,17 @@ between 0% and 100%
 @use "sass:math";
 @use "sass:string";
 
-// Scroll bound animation based on viewport percentage of selector 
-@mixin scroll($property, $top, $bottom, $topPercentage: "", $bottomPercentage: "") {
+// Scroll bound animation based on viewport percentage of class specified
+@mixin scroll($property, $top, $bottom, $topPercentage: "", $bottomPercentage: "", $class: "") {
     
-    $selector: str-replace(#{&}, '.', '');
+    $selector: str-replace(#{&}, '.', '') !global;
+
+    @if ($class != "") {
+        $scrollSelector: str-replace($class, '.', '') !global;
+    } @else {
+        $scrollSelector: $selector !global;
+    }
+
     $bottomPercentagePrefix: 100;
     $topPercentagePrefix: 0;
     
@@ -31,7 +44,7 @@ between 0% and 100%
         $property + '-' +
         $topPercentagePrefix + $bottomPercentagePrefix;
 
-    $animation: string.quote("#{$keyframe} 1s linear 1 calc(-1s * var(--scroll-#{$selector}) / 100) both paused");
+    $animation: string.quote("#{$keyframe} 1s linear 1 calc(-1s * var(--scroll-#{$scrollSelector}) / 100) both paused");
     
     $currentSelector: str-replace($selector, ' ', '_');
     
@@ -47,12 +60,12 @@ between 0% and 100%
 
         0%,
         #{$start}% {
-            #{$property}: $bottom;
+            #{$property}: $top;
         }
         
         #{$end}%,
         100% {
-            #{$property}: $top;
+            #{$property}: $bottom;
         }
     }
 

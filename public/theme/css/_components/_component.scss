@@ -5,15 +5,14 @@
 .section {
   margin-top: 100vh;
   margin-bottom: 100vh;
-	height: 100vh;	
 	flex-direction: column;
-	align-items: center;
   background-color: white;
   overflow: hidden;
 }
 
 .container {
   position: relative;
+  height: 100vh;
 }
 
 .box {
@@ -23,7 +22,8 @@
   left: 20vw;
   top: 20vh;
 	background-color: pink;
-	@include scroll(background-color, green, pink);
+  z-index: 3;
+	@include scroll(transform, translateY(1000px), translateY(-1000px), 0, 100, '.section');
 }
 
 .box-2 {
@@ -33,6 +33,7 @@
   left: 40vw;
   top: 40vh;
   background-color: limegreen;
+  @include scroll(transform, translateY(-352px), translateY(352px), 0, 100, '.section');
 }
 
 .box-3 {

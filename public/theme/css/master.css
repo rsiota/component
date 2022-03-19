@@ -16,13 +16,19 @@ between 375px and 1920px
 @include responsive(font-size, 20px, 60px);
 @include responsive(height, 200px, 1000px, xs, md2);
 */
-/* Interpolates a property between two viewport percentages 
+/* While scrolling in view play scroll animation 
 
-If no percentages are specified, the property will be interpolated
-between 0% and 100%
+If no percentages are specified, the animation boundaries are
+0% (when element starts entering into view) 
+100% (when element is fully invisible)
+
+If no class/selector is specified the trigger of the animation
+is the selector where the mixin is defined
 
 @include scroll(font-size, 20px, 60px);
 @include scroll(height, 200px, 1000px, 30, 50);
+@include scroll(height, 200px, 1000px, 30, 50, '.section');
+
 */
 /* -------------------------------
    Base
@@ -42,15 +48,14 @@ body {
 .section {
   margin-top: 100vh;
   margin-bottom: 100vh;
-  height: 100vh;
   flex-direction: column;
-  align-items: center;
   background-color: white;
   overflow: hidden;
 }
 
 .container {
   position: relative;
+  height: 100vh;
 }
 
 .box {
@@ -60,14 +65,15 @@ body {
   left: 20vw;
   top: 20vh;
   background-color: pink;
-  animation: box--background-color-0100 1s linear 1 calc(-1s * var(--scroll-box) / 100) both paused;
+  z-index: 3;
+  animation: box--transform-0100 1s linear 1 calc(-1s * var(--scroll-section) / 100) both paused;
 }
-@keyframes box--background-color-0100 {
+@keyframes box--transform-0100 {
   0%, 0% {
-    background-color: pink;
+    transform: translateY(1000px);
   }
   100%, 100% {
-    background-color: green;
+    transform: translateY(-1000px);
   }
 }
 
@@ -78,6 +84,15 @@ body {
   left: 40vw;
   top: 40vh;
   background-color: limegreen;
+  animation: box-2--transform-0100 1s linear 1 calc(-1s * var(--scroll-section) / 100) both paused;
+}
+@keyframes box-2--transform-0100 {
+  0%, 0% {
+    transform: translateY(-352px);
+  }
+  100%, 100% {
+    transform: translateY(352px);
+  }
 }
 
 .box-3 {
