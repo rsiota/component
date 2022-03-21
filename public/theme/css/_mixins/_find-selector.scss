@@ -1,8 +1,0 @@
-// Find Selector From Animation
-@use "sass:string";
-
-@function findSelector($animation) {
-    $classIndex: string.index($animation, "--");
-    $class: string.slice($animation, 1, $classIndex - 1);
-    @return $class;
-}

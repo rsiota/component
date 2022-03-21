@@ -1,6 +1,5 @@
 // Checks if current animation selector 
 // is different from stored animation selector 
-@use "sass:string";
 
 @function checkotherSelector($currentSelector) {
     

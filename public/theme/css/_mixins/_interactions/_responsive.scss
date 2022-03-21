@@ -7,11 +7,6 @@ between 375px and 1920px
 @include responsive(height, 200px, 1000px, xs, md2);
 */
 
-@use "sass:list";
-@use "sass:map";
-@use "sass:math";
-@use "sass:string";
-
 $listAnimations: ();
 $breakpointMin: 375;
 $breakpointMax: 1920;
@@ -57,17 +52,17 @@ $breaks: (
     $mqBottomPrefix: 'MO';
     
     @if ($mqTop != "") {
-        $mqTopPrefix: to-upper-case(string.slice($mqTop, 1, 2));  
+        $mqTopPrefix: to-upper-case(str-slice($mqTop, 1, 2));  
     }
     
     @if ($mqBottom != "") {
-        $mqBottomPrefix: to-upper-case(string.slice($mqBottom, 1, 2));  
+        $mqBottomPrefix: to-upper-case(str-slice($mqBottom, 1, 2));  
     }
 
     $keyframe: str-replace($selector, ' ', '_') + '--' + 
          $property + '-' + $mqBottomPrefix + $mqTopPrefix;
 
-    $animation: string.quote("#{$keyframe} 1s linear 1 calc(-1s * var(--width) / 1920) both paused");
+    $animation: #{$keyframe} 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
 
     $currentSelector: str-replace($selector, ' ', '_');
 
@@ -82,8 +77,8 @@ $breaks: (
         $breakpointTop: map-get($breaks, $mqTop);
     } 
 
-    $start: math.div(100, calc($breakpointMax / $breakpointBottom));
-    $end: math.div(100, calc($breakpointMax / $breakpointTop));
+    $start: div(100, calc($breakpointMax / $breakpointBottom));
+    $end: div(100, calc($breakpointMax / $breakpointTop));
     
     
     $breakpoint-value1: map-get($breaks, $mqBottom);
@@ -109,7 +104,7 @@ $breaks: (
             }
         }
 
-        $listAnimations: list.append($listAnimations, $animation) !global;
+        $listAnimations: append($listAnimations, $animation) !global;
         @include mergeAnimations($listAnimations...);
 
     } @else {
@@ -128,7 +123,7 @@ $breaks: (
                 }
             }
 
-            $listAnimations: list.append($listAnimations, $animation) !global;
+            $listAnimations: append($listAnimations, $animation) !global;
             @include mergeAnimations($listAnimations...);
         }
     }

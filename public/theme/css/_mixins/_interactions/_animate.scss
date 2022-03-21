@@ -6,10 +6,6 @@ need to be specified
 Animates the height property with a start time of 0s and a duration o 1s
 */
 
-@use "sass:list";
-@use "sass:map";
-@use "sass:math";
-
 // Animate Property Between Two Media Queries 
 @mixin animate($property, $start, $end, $delay: "", $time: "") {
 
@@ -34,7 +30,7 @@ Animates the height property with a start time of 0s and a duration o 1s
         }
     }
 
-    $listAnimations: list.append($listAnimations, $animation) !global;
+    $listAnimations: append($listAnimations, $animation) !global;
     @include mergeAnimations($listAnimations...);
 
 }

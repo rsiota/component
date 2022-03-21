@@ -1,0 +1,7 @@
+// Find Selector From Animation
+
+@function findSelector($animation) {
+    $classIndex: str-index($animation, "--");
+    $class: str-slice($animation, 1, $classIndex - 1);
+    @return $class;
+}

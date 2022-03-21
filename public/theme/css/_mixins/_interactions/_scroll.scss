@@ -13,11 +13,6 @@ is the selector where the mixin is defined
 
 */
 
-@use "sass:list";
-@use "sass:map";
-@use "sass:math";
-@use "sass:string";
-
 // Scroll bound animation based on viewport percentage of class specified
 @mixin scroll($property, $top, $bottom, $topPercentage: "", $bottomPercentage: "", $class: "") {
     
@@ -44,7 +39,7 @@ is the selector where the mixin is defined
         $property + '-' +
         $topPercentagePrefix + $bottomPercentagePrefix;
 
-    $animation: string.quote("#{$keyframe} 1s linear 1 calc(-1s * var(--scroll-#{$scrollSelector}) / 100) both paused");
+    $animation: "#{$keyframe} 1s linear 1 calc(-1s * var(--scroll-#{$scrollSelector}) / 100) both paused";
     
     $currentSelector: str-replace($selector, ' ', '_');
     
@@ -69,6 +64,6 @@ is the selector where the mixin is defined
         }
     }
 
-    $listAnimations: list.append($listAnimations, $animation) !global;
+    $listAnimations: append($listAnimations, $animation) !global;
     @include mergeAnimations($listAnimations...);
 }
