@@ -14,9 +14,9 @@ let elements = document.querySelectorAll('[scroll]');
 
 // Check if there are elements with attribute scroll on the page
 if (elements.length > 0) {
-	elements.forEach((element) => {
-		updateScrollCssVariable(element);
-	})
+    elements.forEach((element) => {
+        updateScrollCssVariable(element);
+    })
 }
 
 // Listen for window scroll and update '--scroll-classname'
@@ -27,20 +27,21 @@ function updateScrollCssVariable(element) {
 
     window.addEventListener('scroll', function() {
         let elementTop = 0 + element.getBoundingClientRect().top;
-        let elementBottom = 0 + element.getBoundingClientRect().bottom; 
+        let elementBottom = 0 + element.getBoundingClientRect().bottom;
         let elementHeight = elementBottom - elementTop;
-        let percentageHeight = elementHeight + windowHeight;  
+        let percentageHeight = elementHeight + windowHeight;
         let percentage = 100 - (elementBottom / percentageHeight) * 100;
 
+        // Page Scroll
         if (elementClass == 'page') {
-            elementTop = document.documentElement.scrollTop;
-            percentageHeight = elementHeight - windowHeight;
-            percentage = (elementTop / percentageHeight) * 100;
-        } 
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            percentage = (winScroll / height) * 100;
+        }
 
         percentage = round(percentage, 1);
 
-        if (percentage >= 0 && percentage <= 100 ) {
+        if (percentage >= 0 && percentage <= 100) {
             let rootEl = document.documentElement;
             let scrollCssVar = '--scroll-' + elementClass;
             rootEl.style.setProperty(scrollCssVar, percentage);

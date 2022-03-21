@@ -1,5 +1,5 @@
 /* --------------------------------
-  Component 
+  Scroll Progress Indicator 
    -------------------------------- */
 
 .section {
@@ -8,5 +8,6 @@
   background-color: blue;
   position: fixed;
   top: 0px;
+  z-index: 10px;
   @include scroll(width, 0%, 100%, 0, 100, '.page');
 }

@@ -44,7 +44,7 @@ body {
 }
 
 /* --------------------------------
-  Component 
+  Scroll Progress Indicator 
    -------------------------------- */
 .section {
   height: 10px;
@@ -52,6 +52,7 @@ body {
   background-color: blue;
   position: fixed;
   top: 0px;
+  z-index: 10px;
   animation: section--width-0100 1s linear 1 calc(-1s * var(--scroll-page) / 100) both paused;
 }
 @keyframes section--width-0100 {
@@ -61,4 +62,61 @@ body {
   100%, 100% {
     width: 100%;
   }
+}
+
+/* --------------------------------
+  Scroll Based Parallax 
+   -------------------------------- */
+.parallax {
+  position: relative;
+  z-index: -1;
+  margin-top: 100vh;
+  overflow: hidden;
+  background-color: white;
+}
+.parallax__inner {
+  height: 100vh;
+  position: relative;
+}
+.parallax__box-1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  left: 200px;
+  top: 200px;
+  animation: parallax__box-1--transform-0100 1s linear 1 calc(-1s * var(--scroll-parallax) / 100) both paused;
+}
+@keyframes parallax__box-1--transform-0100 {
+  0%, 0% {
+    transform: translateY(1000px);
+  }
+  100%, 100% {
+    transform: translateY(-1000px);
+  }
+}
+.parallax__box-2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  left: 450px;
+  top: 400px;
+  animation: parallax__box-2--transform-0100 1s linear 1 calc(-1s * var(--scroll-parallax) / 100) both paused;
+}
+@keyframes parallax__box-2--transform-0100 {
+  0%, 0% {
+    transform: translateY(-350px);
+  }
+  100%, 100% {
+    transform: translateY(350px);
+  }
+}
+.parallax__box-3 {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-color: green;
+  left: 600px;
+  top: 300px;
 }

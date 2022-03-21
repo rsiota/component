@@ -9,12 +9,28 @@
   ],
   "creatorBuild" : "34335",
   "files" : {
-    "\/app\/templates\/components\/core\/html\/component.inc.php" : {
+    "\/app\/templates\/components\/core\/html\/scrollBasedParallax.inc.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/app\/templates\/components\/core\/html\/component.inc.php",
+      "oAP" : "\/app\/templates\/components\/core\/html\/scrollBasedParallax.inc.php",
+      "oF" : 0
+    },
+    "\/app\/templates\/components\/core\/html\/scrollProgressIndicator.inc.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/app\/templates\/components\/core\/html\/scrollProgressIndicator.inc.php",
+      "oF" : 0
+    },
+    "\/build\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/.gitignore",
       "oF" : 0
     },
     "\/component.sublime-project" : {
@@ -56,7 +72,7 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/public\/theme\/css\/_components\/_component.scss" : {
+    "\/public\/theme\/css\/_components\/_scroll-based-parallax.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
@@ -65,7 +81,22 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/public\/theme\/css\/_components\/_component.css",
+      "oAP" : "\/public\/theme\/css\/_components\/_scroll-based-parallax.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/public\/theme\/css\/_components\/_scroll-progress-indicator.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/theme\/css\/_components\/_scroll-progress-indicator.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
