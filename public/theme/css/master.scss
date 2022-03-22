@@ -1,6 +1,9 @@
 @import "_mixins/media-queries";
+@import "_mixins/google-fonts";
+
 @import "_mixins/interactions";
 
 @import "_base/base";
 @import "_components/scroll-progress-indicator";
 @import "_components/scroll-based-parallax";
+@import "_components/responsive-properties";

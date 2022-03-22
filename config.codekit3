@@ -9,6 +9,14 @@
   ],
   "creatorBuild" : "34335",
   "files" : {
+    "\/app\/templates\/components\/core\/html\/responsiveProperties.inc.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/app\/templates\/components\/core\/html\/responsiveProperties.inc.php",
+      "oF" : 0
+    },
     "\/app\/templates\/components\/core\/html\/scrollBasedParallax.inc.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -72,6 +80,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/public\/theme\/css\/_components\/_responsive-properties.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/theme\/css\/_components\/_responsive-properties.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/public\/theme\/css\/_components\/_scroll-based-parallax.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -97,6 +120,21 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/public\/theme\/css\/_components\/_scroll-progress-indicator.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/public\/theme\/css\/_mixins\/_google-fonts.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/theme\/css\/_mixins\/_google-fonts.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

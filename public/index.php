@@ -25,6 +25,7 @@ defined('BASE_FPATH') || define('BASE_FPATH', ESKIMO_BASE_PATH);
 	<body class="page" scroll>
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/scrollProgressIndicator.inc.php" ); ?>
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/scrollBasedParallax.inc.php" ); ?>
+	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/responsiveProperties.inc.php" ); ?>
 	    <script src="/theme/js/app.js"></script>
 	</body>
 

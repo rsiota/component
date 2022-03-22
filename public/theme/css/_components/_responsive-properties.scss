@@ -1,0 +1,20 @@
+/* --------------------------------
+  Responsive Properties
+   -------------------------------- */
+
+.responsive {
+  height: 80vh;
+  background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    margin: 0px;
+    text-transform: uppercase;
+    @include google-font(Montserrat, 100 800);
+    font-family: Montserrat;
+    font-weight: 800;
+    @include responsive(font-size, 20px, 80px);
+  }
+}

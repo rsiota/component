@@ -1,13 +1,6 @@
 /* --------------------------------
    Media Queries 
    -------------------------------- */
-/* Animates a property between two values. Delay/start & duration parameters
-need to be specified 
-
-@include animate(height, 200px, 1000px, 0s, 1s);
-
-Animates the height property with a start time of 0s and a duration o 1s
-*/
 /* Interpolates a property between two breaks
 
 If no breakpoint is specified, the property will be interpolated
@@ -15,6 +8,13 @@ between 375px and 1920px
 
 @include responsive(font-size, 20px, 60px);
 @include responsive(height, 200px, 1000px, xs, md2);
+*/
+/* Animates a property between two values. Delay/start & duration parameters
+need to be specified 
+
+@include animate(height, 200px, 1000px, 0s, 1s);
+
+Animates the height property with a start time of 0s and a duration o 1s
 */
 /* While scrolling in view play scroll animation 
 
@@ -33,6 +33,7 @@ is the selector where the mixin is defined
 /* -------------------------------
    Base
    ------------------------------- */
+@import url("//fonts.googleapis.com/css?family=Montserrat:100,800");
 html {
   box-sizing: border-box;
 }
@@ -119,4 +120,30 @@ body {
   background-color: green;
   left: 600px;
   top: 300px;
+}
+
+/* --------------------------------
+  Responsive Properties
+   -------------------------------- */
+.responsive {
+  height: 80vh;
+  background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.responsive__text {
+  margin: 0px;
+  text-transform: uppercase;
+  font-family: Montserrat;
+  font-weight: 800;
+  animation: responsive__text--font-size-MODE 1s linear 1 calc(-1s * var(--width) / 1920) both paused;
+}
+@keyframes responsive__text--font-size-MODE {
+  0%, 19.53125% {
+    font-size: 20px;
+  }
+  100%, 100% {
+    font-size: 80px;
+  }
 }
