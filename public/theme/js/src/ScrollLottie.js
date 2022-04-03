@@ -29,6 +29,6 @@ function scrollLottie(animationPath, animationContainer, scrollElement) {
 
 }
 
-// scrollLottie("/pathAnimation.json", ".lottie-animation", ".scroll-element");
-// scrollLottie("/animation.json", ".lottie-animation", ".scroll-element");
-scrollLottie("/movieAnimation.json", ".lottie-animation", ".scroll-element");
+// scrollLottie("/mediaLibrary/pathAnimation.json", ".lottie-animation", ".scroll-element");
+// scrollLottie("/mediaLibrary/animation.json", ".lottie-animation", ".scroll-element");
+// scrollLottie("/mediaLibrary/movieAnimation.json", ".lottie-animation", ".scroll-element");
