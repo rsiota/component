@@ -9,6 +9,7 @@ defined('BASE_FPATH') || define('BASE_FPATH', ESKIMO_BASE_PATH);
 <!-- Boiler Plate & Component -->
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,6 +27,10 @@ defined('BASE_FPATH') || define('BASE_FPATH', ESKIMO_BASE_PATH);
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/scrollProgressIndicator.inc.php" ); ?>
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/scrollBasedParallax.inc.php" ); ?>
 	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/responsiveProperties.inc.php" ); ?>
+	    <?php include_once( BASE_FPATH . "app/templates/components/core/html/scrollLottie.inc.php" ); ?>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.2/smooth-scrollbar.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.1/lottie.min.js"></script>
 	    <script src="/theme/js/app.js"></script>
 	</body>
 

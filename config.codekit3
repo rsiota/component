@@ -25,6 +25,14 @@
       "oAP" : "\/app\/templates\/components\/core\/html\/scrollBasedParallax.inc.php",
       "oF" : 0
     },
+    "\/app\/templates\/components\/core\/html\/scrollLottie.inc.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/app\/templates\/components\/core\/html\/scrollLottie.inc.php",
+      "oF" : 0
+    },
     "\/app\/templates\/components\/core\/html\/scrollProgressIndicator.inc.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -64,6 +72,30 @@
       "oA" : 0,
       "oAP" : "\/public\/index.php",
       "oF" : 0
+    },
+    "\/public\/mediaLibrary\/animation.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/public\/mediaLibrary\/animation-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/public\/mediaLibrary\/movieAnimation.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/public\/mediaLibrary\/movieAnimation-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/public\/mediaLibrary\/pathAnimation.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/public\/mediaLibrary\/pathAnimation-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
     },
     "\/public\/theme\/css\/_base\/_base.scss" : {
       "aP" : 0,
@@ -105,6 +137,21 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/public\/theme\/css\/_components\/_scroll-based-parallax.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/public\/theme\/css\/_components\/_scroll-lottie.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/theme\/css\/_components\/_scroll-lottie.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -340,6 +387,17 @@
       "oA" : 1,
       "oAP" : "\/public\/theme\/js\/app.js",
       "oF" : 2,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/public\/theme\/js\/src\/ScrollLottie.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/theme\/js\/app.js",
+      "oF" : 0,
       "sC" : 3,
       "tS" : 0
     }
