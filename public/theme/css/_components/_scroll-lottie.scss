@@ -1,0 +1,22 @@
+/* --------------------------------
+  Scroll Lottie 
+   -------------------------------- */
+
+.scroll-element {
+  width: 100%;
+  height: 100vh;
+}
+
+.content {
+  width: 100%;
+  height: 400vh;
+}
+
+.lottie-animation {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
