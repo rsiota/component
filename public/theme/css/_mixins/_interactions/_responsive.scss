@@ -77,8 +77,8 @@ $breaks: (
         $breakpointTop: map-get($breaks, $mqTop);
     } 
 
-    $start: calc( 100 / (calc($breakpointMax / $breakpointBottom)));
-    $end: calc( 100 / (calc($breakpointMax / $breakpointTop)));
+    $start: 100 / ($breakpointMax / $breakpointBottom);
+    $end: 100 / ($breakpointMax / $breakpointTop);
     
     $breakpoint-value1: map-get($breaks, $mqBottom);
     $breakpoint-value2: map-get($breaks, $mqTop);
